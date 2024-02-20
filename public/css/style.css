@@ -1,6 +1,11 @@
+/* Tailwind CSS */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 /* Main CSS */
 header {
+    position: flex;
     color: #582C5F;
 }
 
@@ -31,8 +36,8 @@ body {
   
   .box {
     position: absolute;
-    top: 50%;
-    left: 50%;
+    top: 5%;
+    left: 90%;
   }
   
   .object {
@@ -65,7 +70,7 @@ body {
     border-radius: 50%;
     background: #50cddd;
     box-shadow: 0px 0px 80px #0084f9;
-    position: absolute;
+    /* position: absolute; */
   }
   
   .recording .button {
@@ -116,7 +121,7 @@ body {
   
   .mic-icon {
     height: 60px;
-    position: absolute;
+    /* position: absolute; */
     margin: 21px;
   }
   
@@ -139,4 +144,5 @@ body {
     color: white;
     background-color: rgba(0, 0, 0, 0.3);
   }
+  
   
