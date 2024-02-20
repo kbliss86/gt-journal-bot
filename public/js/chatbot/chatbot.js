@@ -6,15 +6,15 @@ window.onload = function () {
     ) {
         var element = document.getElementById('teneo-web-chat');
         const teneoProps = {
-            teneoEngineUrl: 'https://eeirbc8f0trrc29grrurt02975fbppar.grapetree-bot.teneo.solutions/grapetree-bot-gtsop-en-dev-1/',
+            teneoEngineUrl: 'https://suv7ht9gi0cmud0vr2tgg0udfk1fb8jb.grapetree-bot.teneo.solutions/grapetree-bot-jbgpt-en-dev-1/',
             launchIconUrl: '.../assets/images/chatbot-icon-sm.png',
             botAvatarUrl: '.../assets/images/chatbot-icon-sm.png',
             titleIconUrl: '.../assets/images/chatbot02.png',
             showCloseButton: true
         };
         window.TeneoWebChat.initialize(element, teneoProps);
-        window.TeneoWebChat.call('show_callout', 'Welcome to GrapeTree SOP Bot');
-        window.TeneoWebChat.call('set_chat_window_title', 'GrapeTree SOP Bot');
+        window.TeneoWebChat.call('show_callout', 'Welcome to GrapeTree Journal Bot');
+        window.TeneoWebChat.call('set_chat_window_title', 'GrapeTree Journal Bot');
     }
 };
 

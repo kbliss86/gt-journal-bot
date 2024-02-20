@@ -64,7 +64,7 @@ window.addEventListener("load", async () => {
   const _deepgram = createClient(key);
 
   const socket = _deepgram.listen.live({
-    model: "nova",
+    model: "nova-2",
     smart_format: true,
     diarization: true,
   });
