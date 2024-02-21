@@ -66,7 +66,7 @@ window.addEventListener("load", async () => {
   const socket = _deepgram.listen.live({
     model: "nova-2",
     smart_format: true,
-    diarization: true,
+    diarize: true,
   });
 
   let transcriptText = "";
@@ -78,6 +78,7 @@ window.addEventListener("load", async () => {
       console.log(data);
 
       const transcript = data.channel.alternatives[0].transcript;
+      const speaker = "";
 
       if (transcript !== "") {
         transcriptText += transcript + " ";
