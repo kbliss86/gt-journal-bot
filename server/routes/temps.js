@@ -11,13 +11,13 @@ const router = express.Router();
 // Load Environment Variables
 require('dotenv').config();
 
+//GetTemp Route - HCP ID is required
 router.get('/', async (req, res) => {
     try {
-        const hcpID = req.query.tempIdIn;
-        console.log(hcpID)
-        const apiKey = process.env.CLEAR_CONNECT_API_KEY;
-        console.log(apiKey)
+        const hcpID = req.query.tempIdIn; //HCP ID
+        const apiKey = process.env.CLEAR_CONNECT_API_KEY; //API Key
         const response = await fetch(`https://ctms.contingenttalentmanagement.com/grapetree/clearConnect/2_0/?action=getTemps&tempIdIn=${hcpID}&resultType=json`, {
+            //Header required for API Key Authorization
             headers: {
                 'Authorization': `Basic ${Buffer.from(apiKey, 'utf-8').toString('base64')}`
             }
@@ -38,4 +38,5 @@ router.get('/', async (req, res) => {
     }
 });
 
+//Export
 module.exports = router;
