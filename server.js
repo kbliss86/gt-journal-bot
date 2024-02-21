@@ -2,12 +2,17 @@ const express = require("express");
 const http = require("http");
 const { createClient } = require("@deepgram/sdk");
 const dotenv = require("dotenv");
+const routes = require("./server/index");
 dotenv.config();
 
 const client = createClient(process.env.DEEPGRAM_API_KEY);
+const clearConnect = createClient(process.env.CLEAR_CONNECT_API_KEY);
 
 const app = express();
 const server = http.createServer(app);
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 app.use(express.static("public/"));
 app.get("/", (req, res) => {
@@ -45,6 +50,13 @@ app.get("/key", async (req, res) => {
   res.json(key);
 });
 
-server.listen(3000, () => {
-  console.log("listening on http://localhost:3000");
+app.get("/ccKey", async (req, res) => {
+  res.json({ key: process.env.CLEAR_CONNECT_API_KEY });
+});
+
+app.use(routes);
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Server is running on port http://localhost:${PORT}`);
 });

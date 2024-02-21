@@ -76,8 +76,8 @@
                         <form id="hcpForm" class="space-y-4">
                             <div class="flex space-x-4 items-center">
                                 <label for="hcpID" class="w-28">HCP ID:</label>
-                                <input type="text" id="hcpID" name="hcpID" class="w-full rounded-md border-gray-300 text-black">
-                                <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                                <input type="text" id="hcpID" name="hcpID" class="w-full rounded-md border-gray-300 text-black" value="253925">
+                                <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" id="hcpIdSubmit">
                                     Submit
                                 </button>
                             </div>
@@ -96,7 +96,7 @@
                                 </button>
                             </div>
                             <h3>HCP Info</h3>
-                            <div class="grid grid-cols-2 gap-4">
+                            <div class="grid grid-cols-2 gap-4" id="hcpInfo">
                                 <div>
                                     <p>HCP ID:</p>
                                     <p id="hcpIDOutput"></p>
@@ -191,6 +191,7 @@
             <div id="teneo-web-chat"></div>
             <script src="js/chatbot/teneo-web-chat.js"></script>
             <script src="js/chatbot/chatbot.js"></script>
+            <script src="js/ui/callinfohandler.js"></script>
         </section>
     </body>
 </html>
