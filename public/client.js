@@ -81,14 +81,17 @@ window.addEventListener("load", async () => {
       const words = data.channel.alternatives[0].words;
       console.log("Client.js >> Got transcript", transcript);
       console.log("Client.js >> Got words", words);
+      let text = "";
       words.forEach((word) => {
         console.log("Client.js >> Word", word);
         if (word.speaker !== currentSpeaker) {
           currentSpeaker = word.speaker;
-          transcriptText += `Speaker ${currentSpeaker}: `;
+          text += "\n\nSpeaker " + currentSpeaker + ": ";
         }
-        transcriptText += word.word + " ";
+        text += word.word + " ";
       });
+      console.log("Client.js >> Text", text);
+      transcriptionText.textContent += text;
       // if (transcript !== "") {
       //   transcriptText += transcript + " ";
       //   transcriptionText.textContent = transcriptText;
