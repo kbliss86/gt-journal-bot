@@ -15,7 +15,7 @@ https://developer.mitel.io/guides-resources
 
 ## ATS System SDK
 ### CTM
-![CTM Clear Connect API Guide](/assets/aux/ClearConnectUserGuide2-19-2024.pdf)
+![CTM Clear Connect API Guide](/assets/ClearConnectUserGuide2-19-2024.pdf)
 
 ## Installation
 - Clone Repository to Local Drive
