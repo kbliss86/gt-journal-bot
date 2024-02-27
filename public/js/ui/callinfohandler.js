@@ -2,6 +2,7 @@
 function fetchHCPInfo() {
     //Get HCP ID from input
     const hcpID = document.getElementById('hcpID').value;
+    sessionStorage.setItem('hcpID', hcpID);
     if (!hcpID) {
         return;
     }
