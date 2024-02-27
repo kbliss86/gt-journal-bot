@@ -40,3 +40,21 @@ function endSessionTWC() {
     TeneoWebChat.call('disable_user_input')
 }
 
+TeneoWebChat.on('send_button_clicked', onSendStopEndSessionTWC);
+
+function onEngineRequestSendHCPId(payload) {
+    var hcpID = sessionStorage.getItem('hcpID');
+
+        if (hcpID == null) 
+        {
+            sessionStorage.setItem('hcpID', undefined);
+        }
+    var requestDetails = payload.requestDetails;
+
+        if(requestDetails.text) {
+            console.log('requestDetails.text: ' + requestDetails.text);
+        }
+    requestDetails.sCTMTempId = hcpID;    
+    }
+TeneoWebChat.on('engine_request', onEngineRequestSendHCPId);
+
