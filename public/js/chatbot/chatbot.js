@@ -58,3 +58,22 @@ function onEngineRequestSendHCPId(payload) {
     }
 TeneoWebChat.on('engine_request', onEngineRequestSendHCPId);
 
+function summarizeTranscript() {
+    // var transcriptionText = document.getElementById("transcriptionText").textContent; //This is the "real" Transcription Text
+    var transcriptionText = document.getElementById("transcriptionText2").textContent; //This is the "sample" Transcription Text
+    
+
+    var message = {
+        "text": transcriptionText,
+    };
+
+    TeneoWebChat.call('send_input', message);
+    TeneoWebChat.call('maximize');
+};
+
+function summarizeButtonClicked() {
+    summarizeTranscript();
+}
+
+document.getElementById("summarizeButton").addEventListener("click", summarizeButtonClicked);
+
