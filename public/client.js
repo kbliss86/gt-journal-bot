@@ -70,21 +70,33 @@ window.addEventListener("load", async () => {
   });
 
   let transcriptText = "";
+  let currentSpeaker = null;
 
   socket.on("open", async () => {
     console.log("client: connected to websocket");
 
     socket.on("Results", (data) => {
-      console.log(data);
-
+      console.log("Client.js >> Got results", data);
       const transcript = data.channel.alternatives[0].transcript;
-      const speaker = "";
-
-      if (transcript !== "") {
-        transcriptText += transcript + " ";
-        transcriptionText.textContent = transcriptText;
-        captions.innerHTML = transcript ? `<span>${transcript}</span>` : "";
-      }
+      const words = data.channel.alternatives[0].words;
+      console.log("Client.js >> Got transcript", transcript);
+      console.log("Client.js >> Got words", words);
+      let text = "";
+      words.forEach((word) => {
+        console.log("Client.js >> Word", word);
+        if (word.speaker !== currentSpeaker) {
+          currentSpeaker = word.speaker;
+          text += "\n\nSpeaker " + currentSpeaker + ": ";
+        }
+        text += word.word + " ";
+      });
+      console.log("Client.js >> Text", text);
+      transcriptionText.textContent += text;
+      // if (transcript !== "") {
+      //   transcriptText += transcript + " ";
+      //   transcriptionText.textContent = transcriptText;
+      //   captions.innerHTML = transcript ? `<span>${transcript}</span>` : "";
+      // }
     });
 
     socket.on("error", (e) => console.error(e));
