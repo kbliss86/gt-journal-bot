@@ -75,6 +75,7 @@ window.addEventListener("load", async () => {
   socket.on("open", async () => {
     console.log("client: connected to websocket");
 
+    //comment out for original transcription
     socket.on("Results", (data) => {
       console.log("Client.js >> Got results", data);
       const transcript = data.channel.alternatives[0].transcript;
@@ -92,11 +93,15 @@ window.addEventListener("load", async () => {
       });
       console.log("Client.js >> Text", text);
       transcriptionText.textContent += text;
+      // end //
+
+      //comment back in for original transcription
       // if (transcript !== "") {
       //   transcriptText += transcript + " ";
       //   transcriptionText.textContent = transcriptText;
       //   captions.innerHTML = transcript ? `<span>${transcript}</span>` : "";
       // }
+      // end //
     });
 
     socket.on("error", (e) => console.error(e));
